@@ -41,6 +41,14 @@ PowerPoint presentation creation, editing, and analysis. Supports reading conten
 
 Trigger: any task involving a `.pptx` file, deck, slides, or presentation.
 
+### frontend-slides
+
+HTML-first presentation generation for decks that need to feel designed, distinctive, and browser-native. Creates zero-dependency slide decks from scratch, converts `.pptx` files into interactive web slides, and enforces strict viewport-fitting rules so every slide renders cleanly without scrolling.
+
+Source: [zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)
+
+Trigger: user wants to build a presentation in HTML, convert a `.pptx` deck to web slides, or improve an existing HTML presentation.
+
 ### xlsx
 
 Spreadsheet creation, editing, and analysis. Covers data analysis with `pandas`, formula-based Excel models with `openpyxl`, mandatory formula recalculation via LibreOffice (`scripts/recalc.py`), and financial model color-coding and formatting conventions. Enforces zero formula errors as a hard requirement.
@@ -65,11 +73,23 @@ Helps users discover and install skills from the open agent skills ecosystem via
 
 Trigger: user asks "how do I do X", "find a skill for X", or expresses interest in extending agent capabilities.
 
+### summarize
+
+Fast URL, file, and YouTube summarization via the `summarize` CLI. Works well as a fallback for transcript extraction, quick article briefings, and turning local files or video links into short, medium, or long summaries with provider-selectable models.
+
+Trigger: user asks to summarize a URL, local file, article, podcast, or YouTube/video link, or to extract a transcript.
+
 ### self-improving-agent
 
 Captures errors, user corrections, knowledge gaps, and best practices into structured `.learnings/` log files (`ERRORS.md`, `LEARNINGS.md`, `FEATURE_REQUESTS.md`). Supports promotion of broadly applicable learnings to `CLAUDE.md`, `AGENTS.md`, and `.github/copilot-instructions.md`. Integrates with OpenClaw's workspace injection system. Includes hook scripts for automatic error detection and session-start reminders.
 
 Trigger: a command fails unexpectedly, the user corrects the agent, an API behaves differently than expected, or a better approach is discovered for a recurring task.
+
+### tmux
+
+Interactive terminal orchestration via `tmux`. Starts isolated sessions, sends keystrokes to long-running CLIs, captures pane output for inspection, and is especially useful when an agent needs a true TTY for REPLs, interactive tools, or multiple concurrent coding sessions.
+
+Trigger: a task needs remote control of an interactive CLI or background TTY session rather than a one-shot command.
 
 ## Directory Structure
 
@@ -78,11 +98,14 @@ no.1-skills/
 ├── agent-browser/          # Browser automation
 ├── docx/                   # Word document processing
 ├── find-skills/            # Skill discovery and installation
+├── frontend-slides/        # HTML presentation generation
 ├── pdf/                    # PDF processing
 ├── pptx/                   # PowerPoint processing
 ├── self-improving-agent/   # Continuous improvement logging
 ├── skill-creator/          # Skill authoring guide
 ├── skill-installer/        # Skill installer from GitHub
+├── summarize/              # URL and file summarization
+├── tmux/                   # Interactive terminal orchestration
 └── xlsx/                   # Spreadsheet processing
 ```
 
@@ -148,3 +171,6 @@ This collection was assembled from skills originally developed and published by 
 
 - **ClawHub** — [clawhub.ai](https://clawhub.ai/)
   The skill discovery and distribution hub that makes community skills findable and installable via a unified registry.
+
+- **Frontend Slides** — [github.com/zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)
+  The original standalone repository for the `frontend-slides` skill, focused on HTML-native, animation-rich presentations and PPT-to-web conversion workflows.
