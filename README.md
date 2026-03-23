@@ -55,11 +55,23 @@ Spreadsheet creation, editing, and analysis. Covers data analysis with `pandas`,
 
 Trigger: any task where the deliverable or primary input is an `.xlsx`, `.xlsm`, `.csv`, or `.tsv` file.
 
+### skywork-design
+
+Image generation and editing via the Skywork Image API. Supports text-to-image, image-to-image editing, multiple reference images, aspect ratio and resolution control, and scenario-specific guidance for posters, logos, branding, infographics, brochures, and social media visuals.
+
+Trigger: user wants to generate or edit images, posters, logos, or other visual assets.
+
 ### docx
 
 Word document creation, editing, and analysis. Supports creating new documents with `docx-js` (with precise control over page size, styles, lists, tables, images, hyperlinks, footnotes, headers/footers, and TOC), and editing existing documents by unpacking OOXML XML, applying tracked changes and comments, then repacking. Includes `.doc` to `.docx` conversion via LibreOffice.
 
 Trigger: any task involving a `.docx` file, or requests for Word documents, reports, memos, or letters.
+
+### skywork-doc
+
+Professional document generation via the Skywork Office Doc API. Creates polished `docx`, `pdf`, `html`, or `md` outputs from prompts or uploaded reference files, and can automatically gather supporting material through built-in web search when needed.
+
+Trigger: user wants a structured document output that goes beyond a short plain-text reply, especially reports, proposals, resumes, research summaries, or file-based rewrites.
 
 ### agent-browser
 
@@ -72,6 +84,30 @@ Trigger: any task requiring programmatic web interaction — navigating pages, f
 Helps users discover and install skills from the open agent skills ecosystem via the `npx skills` CLI. Searches `skills.sh`, presents results with install commands, and can install skills directly with `npx skills add <package> -g -y`.
 
 Trigger: user asks "how do I do X", "find a skill for X", or expresses interest in extending agent capabilities.
+
+### skywork-excel
+
+AI-powered Excel and structured analysis workflow backed by the Skywork Excel service. Handles spreadsheet creation, data transformation, charting, dashboard-style outputs, and HTML analysis reports, with built-in web search for current data and support for uploaded Excel, CSV, PDF, and image inputs.
+
+Trigger: user wants Excel files, charts, structured analysis reports, or data work that combines uploaded files with up-to-date information.
+
+### skywork-music-maker
+
+Music generation workflow powered by the Mureka API. Covers lyrics writing, full song generation, instrumental creation, reference-track uploads, vocal cloning, and structured prompt conversion from natural-language music requests.
+
+Trigger: user wants to create a song, beat, instrumental, lyrics, or any other AI-generated music asset.
+
+### skywork-ppt
+
+Presentation workflow built on Skywork's PPT backend. Supports generating new decks from a topic, imitating the style of an existing `.pptx`, AI-based editing of existing presentations, and local slide operations such as delete, reorder, extract, and merge.
+
+Trigger: user wants to create, restyle, edit, or locally manipulate a PowerPoint presentation.
+
+### skywork-search
+
+Real-time web search through the Skywork search API. Runs up to three focused queries per invocation and returns structured results with source URLs and snippets that can be synthesized into research notes or fed into document/presentation workflows.
+
+Trigger: user asks for current information, research, fact-finding, or any task that explicitly requires internet search.
 
 ### summarize
 
@@ -104,6 +140,12 @@ no.1-skills/
 ├── self-improving-agent/   # Continuous improvement logging
 ├── skill-creator/          # Skill authoring guide
 ├── skill-installer/        # Skill installer from GitHub
+├── skywork-design/         # Image generation and editing
+├── skywork-doc/            # Professional document generation
+├── skywork-excel/          # Excel and structured analysis generation
+├── skywork-music-maker/    # AI music generation
+├── skywork-ppt/            # Presentation generation and editing
+├── skywork-search/         # Real-time web research
 ├── summarize/              # URL and file summarization
 ├── tmux/                   # Interactive terminal orchestration
 └── xlsx/                   # Spreadsheet processing
@@ -169,8 +211,11 @@ This collection was assembled from skills originally developed and published by 
 - **OpenClaw** — [github.com/openclaw/openclaw/tree/main/skills](https://github.com/openclaw/openclaw/tree/main/skills)
   The OpenClaw workspace-based skill injection platform, including the `self-improving-agent` skill, inter-session communication tools, and the `SOUL.md` / `TOOLS.md` / `AGENTS.md` workspace structure.
 
-- **ClawHub** — [clawhub.ai](https://clawhub.ai/)
-  The skill discovery and distribution hub that makes community skills findable and installable via a unified registry.
-
 - **Frontend Slides** — [github.com/zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)
   The original standalone repository for the `frontend-slides` skill, focused on HTML-native, animation-rich presentations and PPT-to-web conversion workflows.
+
+- **Skywork Skills** — [github.com/SkyworkAI/Skywork-Skills](https://github.com/SkyworkAI/Skywork-Skills)
+  The upstream source for the `skywork-design`, `skywork-doc`, `skywork-excel`, `skywork-music-maker`, `skywork-ppt`, and `skywork-search` skills, providing hosted creation workflows for images, documents, spreadsheets, presentations, music, and web research.
+
+- **ClawHub** — [clawhub.ai](https://clawhub.ai/)
+  The skill discovery and distribution hub that makes community skills findable and installable via a unified registry.
