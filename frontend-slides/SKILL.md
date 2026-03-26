@@ -85,7 +85,7 @@ When enhancing existing presentations, viewport fitting is the biggest risk:
 
 ## Phase 1: Content Discovery (New Presentations)
 
-**Ask ALL questions in a single AskUserQuestion call** so the user fills everything out at once:
+**Use the AskUserQuestion tool to ask ALL questions in a single call** so the user fills everything out at once:
 
 **Question 1 — Purpose** (header: "Purpose"):
 What is this presentation for? Options: Pitch deck / Teaching-Tutorial / Conference talk / Internal presentation
@@ -114,7 +114,7 @@ If user provides an image folder:
 2. **View each image** — Use the Read tool (Claude is multimodal)
 3. **Evaluate** — For each: what it shows, USABLE or NOT USABLE (with reason), what concept it represents, dominant colors
 4. **Co-design the outline** — Curated images inform slide structure alongside text. This is NOT "plan slides then add images" — design around both from the start (e.g., 3 screenshots → 3 feature slides, 1 logo → title/closing slide)
-5. **Confirm via AskUserQuestion** (header: "Outline"): "Does this slide outline and image selection look right?" Options: Looks good / Adjust images / Adjust outline
+5. **Confirm via the AskUserQuestion tool** (header: "Outline"): "Does this slide outline and image selection look right?" Options: Looks good / Adjust images / Adjust outline
 
 **Logo in previews:** If a usable logo was identified, embed it (base64) into each style preview in Phase 2 — the user sees their brand styled three different ways.
 
@@ -175,6 +175,7 @@ If images were provided, the slide outline already incorporates them from Step 1
 - [html-template.md](html-template.md) — HTML architecture and JS features
 - [viewport-base.css](viewport-base.css) — Mandatory CSS (include in full)
 - [animation-patterns.md](animation-patterns.md) — Animation reference for the chosen feeling
+- [content-rendering.md](content-rendering.md) — **Only if** content includes code blocks, math, or pseudocode
 
 **Key requirements:**
 - Single self-contained HTML file, all CSS/JS inline
@@ -182,6 +183,13 @@ If images were provided, the slide outline already incorporates them from Step 1
 - Use fonts from Fontshare or Google Fonts — never system fonts
 - Add detailed comments explaining each section
 - Every section needs a clear `/* === SECTION NAME === */` comment block
+
+**Mobile-First Hardening:**
+- Use `100dvh` (dynamic viewport height) alongside `100vh` for mobile browsers that hide/show the address bar
+- Touch targets must be at least 44×44px (nav dots, buttons)
+- Respect `env(safe-area-inset-*)` for notched devices — add to slide padding
+- Disable heavy animations (particles, parallax) at `max-width: 768px`
+- Test that swipe navigation works alongside scroll-snap
 
 ---
 
@@ -199,11 +207,14 @@ When converting PowerPoint files:
 ## Phase 5: Delivery
 
 1. **Clean up** — Delete `.claude-design/slide-previews/` if it exists
-2. **Open** — Use `open [filename].html` to launch in browser
-3. **Summarize** — Tell the user:
+2. **Export PDF (default ON)** — Run `bash scripts/export-pdf.sh [filename].html` to generate a PDF alongside the HTML. If Chrome/Chromium is not available, skip gracefully and deliver HTML only.
+3. **Open** — Use `open [filename].html` to launch in browser
+4. **Summarize** — Tell the user:
    - File location, style name, slide count
-   - Navigation: Arrow keys, Space, scroll/swipe, click nav dots
+   - Navigation: Arrow keys, Space, scroll/swipe, click nav dots, F for fullscreen
    - How to customize: `:root` CSS variables for colors, font link for typography, `.reveal` class for animations
+   - Press F to enter fullscreen mode on current slide
+   - If PDF was exported: PDF file location
    - If inline editing was enabled: Hover top-left corner or press E to enter edit mode, click any text to edit, Ctrl+S to save
 
 ---
@@ -216,4 +227,6 @@ When converting PowerPoint files:
 | [viewport-base.css](viewport-base.css) | Mandatory responsive CSS — copy into every presentation | Phase 3 (generation) |
 | [html-template.md](html-template.md) | HTML structure, JS features, code quality standards | Phase 3 (generation) |
 | [animation-patterns.md](animation-patterns.md) | CSS/JS animation snippets and effect-to-feeling guide | Phase 3 (generation) |
+| [content-rendering.md](content-rendering.md) | Code blocks, math (MathML), pseudocode — zero dependencies | Phase 3 (technical content) |
 | [scripts/extract-pptx.py](scripts/extract-pptx.py) | Python script for PPT content extraction | Phase 4 (conversion) |
+| [scripts/export-pdf.sh](scripts/export-pdf.sh) | Headless Chrome PDF export | Phase 5 (delivery) |

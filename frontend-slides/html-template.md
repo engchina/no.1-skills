@@ -152,12 +152,28 @@ Every presentation must include:
    - Mouse wheel navigation
    - Progress bar updates
    - Navigation dots
+   - Fullscreen toggle (F key)
 
 2. **Intersection Observer** — For scroll-triggered animations:
    - Add `.visible` class when slides enter viewport
    - Trigger CSS transitions efficiently
 
-3. **Optional Enhancements** (match to chosen style):
+3. **Fullscreen Toggle** — Press `F` key to enter/exit fullscreen on current slide:
+   ```javascript
+   document.addEventListener('keydown', (e) => {
+       if (e.key === 'f' || e.key === 'F') {
+           if (!e.target.getAttribute('contenteditable')) {
+               if (!document.fullscreenElement) {
+                   this.slides[this.currentSlide].requestFullscreen();
+               } else {
+                   document.exitFullscreen();
+               }
+           }
+       }
+   });
+   ```
+
+4. **Optional Enhancements** (match to chosen style):
    - Custom cursor with trail
    - Particle system background (canvas)
    - Parallax effects

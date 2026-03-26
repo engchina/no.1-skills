@@ -136,6 +136,21 @@ npx skills add <owner/repo@skill-name> -g -y
 # "Install the pdf skill"
 ```
 
+### Optional: gstack
+
+The gstack collection is an opinionated set of Claude Code skills (compatible with Codex) that provides product planning, engineering review, code review, browser automation, and more.
+
+To install gstack globally for Codex (requires [Bun](https://bun.sh/), a fast, all-in-one JavaScript runtime and toolkit):
+
+```bash
+# Install Bun (if not already installed)
+curl -fsSL https://bun.sh/install | bash
+
+# Install gstack
+git clone https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup --host codex
+```
+
 ### Optional: Skywork Skills
 
 The Skywork skills are not included in this repository by default because they require authentication.
@@ -183,6 +198,9 @@ This collection was assembled from skills originally developed and published by 
 
 - **Frontend Slides** — [github.com/zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)
   The original standalone repository for the `frontend-slides` skill, focused on HTML-native, animation-rich presentations and PPT-to-web conversion workflows.
+
+- **gstack** — [github.com/garrytan/gstack](https://github.com/garrytan/gstack)
+  An opinionated collection of agent skills for product planning, engineering review, code review, browser automation, and more. Built for Claude Code but compatible with Codex and other SKILL.md-compliant agents.
 
 - **Skywork Skills** — [github.com/SkyworkAI/Skywork-Skills](https://github.com/SkyworkAI/Skywork-Skills)
   An optional external skill collection for hosted image, document, spreadsheet, presentation, music, and web search workflows. These skills are not bundled here by default because they require authentication, but can be installed separately with `npx skills add git@github.com:SkyworkAI/Skywork-Skills.git`.

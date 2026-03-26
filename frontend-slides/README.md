@@ -18,6 +18,8 @@ https://github.com/user-attachments/assets/ef57333e-f879-432a-afb9-180388982478
 - **PPT Conversion** — Convert existing PowerPoint files to web, preserving all images and content.
 - **Anti-AI-Slop** — Curated distinctive styles that avoid generic AI aesthetics (bye-bye, purple gradients on white).
 - **Production Quality** — Accessible, responsive, well-commented code you can customize.
+- **PDF Export** — Auto-generates PDF alongside HTML using headless Chrome.
+- **Technical Content** — Native code blocks, MathML math notation, and pseudocode — zero external dependencies.
 
 ## Installation
 
@@ -57,7 +59,8 @@ The skill will:
 2. Ask about the feeling you want (impressed? excited? calm?)
 3. Generate 3 visual style previews for you to compare
 4. Create the full presentation in your chosen style
-5. Open it in your browser
+5. Export to PDF (if Chrome/Chromium available)
+6. Open it in your browser
 
 ### Convert a PowerPoint
 
@@ -104,7 +107,9 @@ This skill uses **progressive disclosure** — the main `SKILL.md` is a concise 
 | `viewport-base.css` | Mandatory responsive CSS | Phase 3 (generation) |
 | `html-template.md` | HTML structure and JS features | Phase 3 (generation) |
 | `animation-patterns.md` | CSS/JS animation reference | Phase 3 (generation) |
+| `content-rendering.md` | Code blocks, math, pseudocode styling | Phase 3 (technical content) |
 | `scripts/extract-pptx.py` | PPT content extraction | Phase 4 (conversion) |
+| `scripts/export-pdf.sh` | Headless Chrome PDF export | Phase 5 (delivery) |
 
 This design follows [OpenAI's harness engineering](https://openai.com/index/harness-engineering/) principle: "give the agent a map, not a 1,000-page instruction manual."
 
