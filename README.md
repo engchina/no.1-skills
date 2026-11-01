@@ -91,6 +91,22 @@ Interactive terminal orchestration via `tmux`. Starts isolated sessions, sends k
 
 Trigger: a task needs remote control of an interactive CLI or background TTY session rather than a one-shot command.
 
+### grill-me
+
+A relentless interview to sharpen a plan or design. A thin entry point that hands off to the `grilling` skill, keeping the interview protocol itself in one place. Declares `disable-model-invocation: true`, so it is offered as a user-invoked command rather than being advertised to the model.
+
+Source: [mattpocock/skills](https://github.com/mattpocock/skills)
+
+Trigger: user wants to be interviewed on a plan or design before anything gets built.
+
+### grilling
+
+Grills the user relentlessly about a plan, decision, or idea. Maps decisions as a design tree and works it in rounds: each round asks the whole current frontier — the decisions whose prerequisites are already settled — numbering every question and giving a recommended answer, then waits for the replies before recomputing the frontier. Facts are the agent's job (dispatch a sub-agent instead of asking), decisions are the user's.
+
+Source: [mattpocock/skills](https://github.com/mattpocock/skills)
+
+Trigger: user wants to stress-test their thinking, or uses any "grill" trigger phrase.
+
 ## Directory Structure
 
 ```
@@ -99,6 +115,8 @@ no.1-skills/
 ├── docx/                   # Word document processing
 ├── find-skills/            # Skill discovery and installation
 ├── frontend-slides/        # HTML presentation generation
+├── grill-me/               # Interview entry point for the grilling skill
+├── grilling/               # Relentless design-tree interview protocol
 ├── pdf/                    # PDF processing
 ├── pptx/                   # PowerPoint processing
 ├── self-improving-agent/   # Continuous improvement logging
@@ -204,6 +222,9 @@ This collection was assembled from skills originally developed and published by 
 
 - **Skywork Skills** — [github.com/SkyworkAI/Skywork-Skills](https://github.com/SkyworkAI/Skywork-Skills)
   An optional external skill collection for hosted image, document, spreadsheet, presentation, music, and web search workflows. These skills are not bundled here by default because they require authentication, but can be installed separately with `npx skills add git@github.com:SkyworkAI/Skywork-Skills.git`.
+
+- **Matt Pocock's Skills** — [github.com/mattpocock/skills](https://github.com/mattpocock/skills)
+  A collection of focused agent skills, contributing the `grill-me` and `grilling` interview skills used to stress-test a plan through a round-based design-tree interview.
 
 - **ClawHub** — [clawhub.ai](https://clawhub.ai/)
   The skill discovery and distribution hub that makes community skills findable and installable via a unified registry.
